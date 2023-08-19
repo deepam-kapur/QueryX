@@ -1,0 +1,37 @@
+{
+  "name": "queryx",
+  "version": "0.0.0",
+  "description": "QueryX is an advanced database query runner designed to handle big and complex queries with ease from DDL statements to Partitioning",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepam-kapur/QueryX.git"
+  },
+  "keywords": [
+    "dbaac",
+    "daac",
+    "queries",
+    "database",
+    "db"
+  ],
+  "author": "Deepam Kapur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deepam-kapur/QueryX/issues"
+  },
+  "homepage": "https://github.com/deepam-kapur/QueryX#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "moment": "^2.29.4",
+    "mysql2": "^3.5.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.45.0"
+  }
+}
