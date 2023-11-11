@@ -6,7 +6,7 @@ import InitializeDB from "./modules/initialization/init.js";
 import Config from './config/index.js'
 
 (async () => {
-    InitializeDB();
+    await InitializeDB();
 
     const app = Express();
     // Middleware
