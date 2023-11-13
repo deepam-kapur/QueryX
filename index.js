@@ -1,27 +1,28 @@
-/* eslint-disable no-unused-vars */
 import Express from 'express';
 
-import Routers from './routes/index.js'
-import InitializeDB from "./modules/initialization/init.js";
-import Config from './config/index.js'
+import Routers from './routes/index.js';
+import InitializeDB from './modules/internal/initialization/init.js';
+import Config from './config/index.js';
+
+import Response from './helpers/response.js';
+import Log from './helpers/log.js';
 
 (async () => {
-    await InitializeDB();
+  await InitializeDB();
 
-    const app = Express();
-    // Middleware
-    app.use(Express.json());
+  const app = Express();
 
-    app.use('/', Routers);
+  // Middleware
+  app.use(Express.json());
 
-    // Error handling middleware
-    app.use((err, req, res, next) => {
-        console.error(err.stack);
-        res.status(500).send('Internal Server Error');
-    });
-  
-    // Start the server
-    app.listen(Config.PORT, () => {
-        console.log(`Server running on port ${Config.PORT}`);
-    });
+  app.use('/', Routers);
+
+  // Error handling middleware
+  app.use((err, req, res, next) => {
+    Log.errorRequest(err, req);
+    return Response.error(res, null, 'Internal Server Error', 500);
+  });
+
+  // Start the server
+  app.listen(Config.PORT, () => Log.info(`Server running on port ${Config.PORT}`));
 })();

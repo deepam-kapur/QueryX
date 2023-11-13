@@ -3,6 +3,7 @@ import { config } from 'dotenv';
 import url from 'url';
 import path from 'path';
 
+// eslint-disable-next-line no-underscore-dangle
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 config({ path: path.normalize(`${__dirname}/../dynamics/.env`) });
@@ -19,7 +20,7 @@ const defaultConfig = {
   DB_PASSWORD: 'root',
   DB_POOL_CONNECTION_LIMIT: 5,
   DB_IDLE_TIMEOUT_MILLIS: 10000,
-  DB_CONNECTION_TIMEOUT_MILLIS: 2000
+  DB_CONNECTION_TIMEOUT_MILLIS: 2000,
 };
 
 const args = process.argv.slice(2);
